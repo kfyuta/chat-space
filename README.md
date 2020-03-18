@@ -28,7 +28,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|VARCHAR|null: false|
+|name|VARCHAR|index: true, null: false|
 |email|VARCHAR|null: false, unique: true|
 |password|VARCHAR|null: false|
 |password_confirmation|VARCHAR|null: false|
