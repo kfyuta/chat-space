@@ -52,8 +52,8 @@ Things you may want to cover:
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|INTEGER|null: false, foreign_key: true|
-|group_id|INTEGER|null: false, foreign_key: true|
+|user|reference|null: false, foreign_key: true|
+|group|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user 
@@ -64,8 +64,8 @@ Things you may want to cover:
 |------|----|-------|
 |content|TEXT||
 |image|STRING||
-|user_id|INTEGER|null: false, foreign_key: true|
-|group_id|INTEGER|null: false, foreign_key: true|
+|user|reference|null: false, foreign_key: true|
+|group|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
