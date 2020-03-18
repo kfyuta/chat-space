@@ -28,23 +28,25 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|VARCHAR|index: true, null: false|
-|email|VARCHAR|null: false, unique: true|
-|password|VARCHAR|null: false|
-|password_confirmation|VARCHAR|null: false|
+|name|string|index: true, null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|password_confirmation|string|null: false|
 
 ### Asociation
 - has_many :groups, through: :groups_users
 - has_many :messages
+- has_many :groups_users
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|VARCHAL|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :messages
 - has_many :users, through: :groups_users
+- has_many :groups_users
 
 
 ## groups_usersテーブル
@@ -60,7 +62,7 @@ Things you may want to cover:
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|content|TEXT|null: false|
+|content|TEXT||
 |image|STRING||
 |user_id|INTEGER|null: false, foreign_key: true|
 |group_id|INTEGER|null: false, foreign_key: true|
