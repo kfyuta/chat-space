@@ -60,7 +60,7 @@ Things you may want to cover:
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|content|TEXT|??|
+|content|TEXT|null: false|
 |image|STRING||
 |user_id|INTEGER|null: false, foreign_key: true|
 |group_id|INTEGER|null: false, foreign_key: true|
