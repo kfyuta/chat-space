@@ -1,3 +1,6 @@
+
+@import "valiable";
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +13,7 @@
   &__header {
     padding: 0 20px;
     height: 100px;
-    color: #ffffff;
+    color: $side--font--color;
     font-weight: bold;
     font-size: 16px;
     display: flex;
@@ -25,7 +28,6 @@
       }
       &__menu {
         line-height: 20px;
-        // width: 60px;
         display: flex;
         justify-content: right;
         .icon {
@@ -42,7 +44,7 @@
     height: calc(100vh - 100px);
     overflow: scroll;
     .group {
-      color: #ffffff;
+      color: $side--font--color;
       height: 45px;
       margin-bottom: 40px;
       text-decoration: none;
@@ -70,7 +72,7 @@
     justify-content: space-between;
     &--left {
       .chatmain__group__name {
-        color: #333333;
+        color: $chat--font--color;
         font-size: 20px;
         padding: 35px 0 15px 0;
       }
@@ -102,7 +104,7 @@
     .info--container {
       display: flex;
       .left--container {
-        color: #333333;
+        color: $chat--font--color;
         font-size: 16px;
         font-weight: bold;
       }
