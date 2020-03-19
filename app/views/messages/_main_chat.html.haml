@@ -1,0 +1,68 @@
+.chatmain
+  .chatmain__group
+    .chatmain__group--left
+      %p.chatmain__group__name techcamp
+      %ul.chatmain__group__member__list
+        %li Member：yuta
+    .chatmain__group--right
+      = link_to "#", class:"edit--btn" do
+        Edit
+  .message--list
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+    .info--container
+      .left--container
+        %p.name yuta
+      .right--container
+        %p.time 2020/03/19 00:00:00
+    .text--container
+      %p.text hello!hello!all green!
+  .message--form
+    .input--box
+      .text
+        %input.input-box__text{:name => "content",:placeholder => "type a message", :type => "text"}
+      %label{class: "input-box__image"}
+        = icon('fa', 'image')
+        %input{class: "sendfile", type: "file"}
+    .send--btn
+      %input.send{:value => "Send", :type => "submit", :name => "commit"}
