@@ -4,5 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+<<<<<<< Updated upstream
+=======
+  has_many :group_users
+  has_many :groups, through: :group_users
+  has_many :messages
+>>>>>>> Stashed changes
   validates :name, presence: true, uniqueness: true
 end

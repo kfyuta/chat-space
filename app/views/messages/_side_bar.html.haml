@@ -11,6 +11,7 @@
           = link_to edit_user_path(current_user), class: "icon" do
             = icon("fas", "cog")
   .groups
+<<<<<<< Updated upstream
     = link_to "#", class: "group" do
       %p.group__name techcamp
       %p.group__message まだメッセージがありません。
@@ -22,3 +23,12 @@
     = link_to "#", class: "group" do
       %p.group__name techcamp
       %p.group__message Message dont exist.
+=======
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group), class: "group" do
+          %p.group__name 
+            = group.name
+          %p.group__message 
+            = group.show_last_message
+>>>>>>> Stashed changes
