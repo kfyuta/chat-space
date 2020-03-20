@@ -1,15 +1,24 @@
 .sidebar
   .sidebar__header
     .sidebar__header__top
-      %p.sidebar__header__top__name yuta
+      %h3.sidebar__header__top__name 
+        = current_user.name
       %ul.sidebar__header__top__menu
         %li.sidebar__header__top__edit-user
           = link_to "#", class: "icon" do
             = icon('fas', 'edit')
         %li.sidebar__header__top__new-group
-          = link_to "#", class: "icon" do
+          = link_to edit_user_path(current_user), class: "icon" do
             = icon("fas", "cog")
   .groups
     = link_to "#", class: "group" do
       %p.group__name techcamp
       %p.group__message まだメッセージがありません。
+  .groups
+    = link_to "#", class: "group" do
+      %p.group__name techcamp
+      %p.group__message No messages.
+  .groups
+    = link_to "#", class: "group" do
+      %p.group__name techcamp
+      %p.group__message Message dont exist.
