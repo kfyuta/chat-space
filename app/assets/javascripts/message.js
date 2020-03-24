@@ -57,10 +57,11 @@ $(function() {
       $(".message--list").append(html);
       $('.message--list').animate({ scrollTop: $('.message--list')[0].scrollHeight});
       $('form')[0].reset();
-      $('#form__submit').prop("disabled", false);
     })
     .fail(() => {
       alert('error');
+    })
+    .always(() => {
       $('#form__submit').prop("disabled", false);
     })
   })
