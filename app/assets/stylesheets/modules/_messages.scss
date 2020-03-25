@@ -103,16 +103,18 @@
     padding: 46px 40px;
     overflow: scroll;
     .message {
-      display: flex;
-      .upper-message__user-name {
-        color: $chat--font--color;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .upper-message__date {
-        color: #999999;
-        font-size: 12px;
-        margin-left: 10px;
+      .upper-message {
+        display: flex;
+        &__user-name {
+          color: $chat--font--color;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date {
+          color: #999999;
+          font-size: 12px;
+          margin-left: 10px;
+        }
       }
     }
     .lower-message {

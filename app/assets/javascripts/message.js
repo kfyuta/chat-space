@@ -1,49 +1,48 @@
 $(function() {
-  function buildHTML(message) {
-    if( message.image ) {
+  function buildHTML(message){
+    if ( message.image) {
       let html = 
-      `<div class="message">
-        <div class="upper-message__user-name">
-        ${message.user_name}
+      `<div class="message" data-message-id=${message.id}">
+        <div class="upper-message">
+          <div class="upper-message__user-name">
+            ${message.user_name}
+          </div>
+          <div class="upper-message__date">
+            ${message.created_at}
+          </div>
         </div>
-        <div class="upper-message__date">
-        ${message.created_at}
+        <div class="lower-message">
+          <p class="lower-message__content">
+            ${message.content}
+          </p>
         </div>
-      </div>
-      <div class="lower-message">
-        <p class="lower-message__content">
-        ${message.content}
-        </p>
-      </div>
-      <div class="lower-message__content">
-        <img src=${message.image}>
+        <img src="${message.image}" class="lower-message__image">
       </div>`
       return html;
     } else {
-      var html =
-      `<div class="message">
-        <div class="upper-message__user-name">
-          ${message.user_name}
-        </div>
-        <div class="upper-message__date">
-          ${message.created_at}
-        </div>
-        </div>
-        <div class="lower-message">
-        <p class="lower-message__content">
-          ${message.content}
-        </p>
-        </div>
-      </div>`
+        var html =
+        `<div class="message" data-message-id="${message.id}">
+          <div class="upper-message">
+            <div class="upper-message__user-name">
+              ${message.user_name}
+            </div>
+            <div class="upper-message__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="lower-message">
+            <p class="lower-message__content">
+              ${message.content}
+            </p>
+          </div>
+        </div>`
       return html;
-    }
+    };
   }
-
-
-  $("#new_message").on('submit', function(e) {
+$("#new_message").on('submit', function(e) {
     e.preventDefault();
-    let formData = new FormData(this);
-    let url = $(this).attr('action');
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -52,17 +51,33 @@ $(function() {
       processData: false,
       contentType: false
     })
-    .done((data) => {
+    .done(function(data) {
       let html = buildHTML(data);
       $(".message--list").append(html);
       $('.message--list').animate({ scrollTop: $('.message--list')[0].scrollHeight});
       $('form')[0].reset();
     })
-    .fail(() => {
-      alert('error');
+    .fail(function() {
+      alert('イメージもしくはテキストを入力してください');
     })
-    .always(() => {
+    .always(function() {
       $('#form__submit').prop("disabled", false);
     })
   })
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id : last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
 });
