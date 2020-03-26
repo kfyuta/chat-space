@@ -69,15 +69,23 @@ $("#new_message").on('submit', function(e) {
     var last_message_id = $('.message:last').data("message-id");
     $.ajax({
       url: "api/messages",
-      type: 'get',
+      type: 'GET',
       dataType: 'json',
       data: {id : last_message_id}
     })
     .done(function(messages) {
-      console.log('success');
-    })
+      var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.message--list').append(insertHTML);
+        $('.message--list').animate({ scrollTop: $('.message--list')[0].scrollHeight});
+      })
     .fail(function() {
       alert('error');
     });
   };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
